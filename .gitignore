@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+Redmi OSD.lnk
+screenshots/check*/
+build/
+dist/
+*.spec
+Thumbs.db
+Desktop.ini
