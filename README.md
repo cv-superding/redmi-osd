@@ -42,6 +42,12 @@ py -3.13 -m venv .venv
 
 想放桌面的话，可以右键 `启动 Redmi OSD.vbs` → 发送到 → 桌面快捷方式。程序为单实例，重复启动只会唤起正在运行的窗口。
 
+### 平台支持
+
+**仅支持 Windows 10/11**（Windows 11 实测）。`启动 Redmi OSD.vbs` 只是 Windows Script Host 启动器，用来无控制台启动 Python，不是应用本体，也不能在 macOS 上打开。DDC/CI 后端依赖 Win32 `dxva2.dll` / `user32.dll`，因此本项目没有 macOS 或 Linux 版本。
+
+macOS 上控制外接显示器亮度/对比度可以考虑 [MonitorControl](https://github.com/MonitorControl/MonitorControl) 或 BetterDisplay（非本项目）。
+
 ## 快捷键
 
 | 热键 | 作用 |
@@ -66,6 +72,7 @@ py -3.13 -m venv .venv
 - 音量控制取决于显示器的音频输出能力；无扬声器/耳机输出时无感。
 - 界面副标题显示系统当前模式（当前为 2560 × 1440 · 144 Hz），不是面板标称最高刷新率。
 - 仅针对 XMI 27B1（Redmi G27Q 2026）实测；其他支持 DDC/CI 的显示器通常可用，但可用项和输入源枚举可能不同。
+- 仅支持 Windows 10/11；macOS / Linux 不能运行（`.vbs` 只是 Windows 启动脚本，DDC 后端是 Win32 API）。
 - DDC/CI 只暴露标准 VCP（亮度、对比度、色彩、输入、音量）；响应时间、准星、帧率计等游戏项不在标准协议内，无法由本应用控制。
 
 ## 技术说明

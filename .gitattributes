@@ -1,0 +1,5 @@
+* text=auto
+*.vbs text eol=crlf
+*.png binary
+*.ico binary
+*.lnk binary
